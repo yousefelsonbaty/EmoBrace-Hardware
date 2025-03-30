@@ -55,6 +55,20 @@ serviceAccountKey.json
 
 4. **Machine Learning Model**:
    - Ensure `final_emotion_model.pkl` and `scaler.pkl` are in the project directory.
+  
+## Hardware Design
+
+### Block Diagram
+
+![WhatsApp Image 2025-03-30 at 21 26 15](https://github.com/user-attachments/assets/a04022f0-6343-42a5-9250-15e36f859575)
+
+### Schematic Diagram
+
+![WhatsApp Image 2025-03-30 at 21 26 28](https://github.com/user-attachments/assets/94881702-2641-4d0d-b6d1-300e99224665)
+
+### Wiring Diagram
+
+![WhatsApp Image 2025-03-30 at 21 26 36](https://github.com/user-attachments/assets/78314169-d2be-4e47-9775-2cf8c2cd04b5)
 
 ## Usage
 
