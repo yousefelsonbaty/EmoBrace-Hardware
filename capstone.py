@@ -96,6 +96,9 @@ suggestions = {
     "Stressed": "Consider taking short breaks to decompress."
 }
 
+# Define a unique Bracelet ID
+bracelet_id = "BRACELET_001"  # Replace with the actual ID of the bracelet
+
 # Function to create a composite output of emotion and suggestion
 def create_composite_output(emotion):
     return {"Emotion": emotion, "Suggestion": suggestions[emotion]}
@@ -178,7 +181,8 @@ def collect_data_and_save_to_firestore(duration=60, interval=6):
                 avg_doc_ref = db.collection(u'SensorData').document()
                 avg_doc_ref.set({
                     "Timestamp": datetime.datetime.now(),
-                    "userId": user_id,
+                    "userID": user_id,
+                    "braceletID": bracelet_id,  # Add Bracelet ID
                     "Temperature": avg_temperature,
                     "ECG": avg_ecg,
                     "GSR": avg_gsr,
