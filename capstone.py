@@ -121,13 +121,16 @@ def predict_output(temperature, ecg, gsr):
     """Predict emotion and suggestion based on sensor readings."""
     # Create input data as a DataFrame with feature names
     input_data = pd.DataFrame([[temperature, ecg, gsr]], columns=["Temperature", "ECG", "GSR"])
-    
+   
     # Scale the input data
-    scaled_data = scaler.transform(input_data)
-    
+    scaled_array = scaler.transform(input_data)
+   
+    # Create a new DataFrame for the scaled data, preserving feature names
+    scaled_data = pd.DataFrame(scaled_array, columns=["Temperature", "ECG", "GSR"])
+   
     # Predict the emotion label
     predicted_emotion_label = emotion_model.predict(scaled_data)[0]
-    
+   
     # Create the composite output using the predicted emotion label
     return create_composite_output(label_to_emotion[predicted_emotion_label])
 
@@ -138,7 +141,7 @@ def collect_data_and_save_to_firestore(duration=60, interval=6):
     ecg_sum = 0
     gsr_sum = 0
     count = 0
-    
+   
     try:
         while time.time() - start_time < duration:
             # Read sensor data
